@@ -1,44 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
+  min-height: 100vh;
   margin: 0;
+  font-family: "Nunito", sans-serif;
+  background: #ffffff;
 }
 
+/* Main Calculator */
 .calculator {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  padding: 24px;
+  background: #fff9bf;
+  border: 3px solid #20202b;
+  border-radius: 16px;
+  box-shadow: 7px 7px 0 #20202b;
+  transition: transform 0.2s ease;
 }
 
+.calculator:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 9px 9px 0 #20202b;
+}
+
+/* Display */
 #display {
   width: 100%;
-  height: 40px;
-  margin-bottom: 10px;
+  height: 70px;
+  margin-bottom: 18px;
+  padding: 12px;
   text-align: right;
-  font-size: 24px;
-  padding: 10px;
-  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #20202b;
+  background: #ffffff;
+  border: 3px solid #20202b;
+  border-radius: 10px;
+  outline: none;
 }
 
+#display:focus {
+  background: #e0f5ff;
+}
+
+/* Button Layout */
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 11px;
 }
 
+/* Buttons */
 button {
-  height: 50px;
+  height: 54px;
+  font-family: "Nunito", sans-serif;
   font-size: 18px;
-  background-color: #e0e0e0;
-  border: none;
-  border-radius: 5px;
+  font-weight: 800;
+  color: #20202b;
+  background: #bce0ff;
+  border: 3px solid #20202b;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 #20202b;
   cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
 }
 
+/* Hover */
+button:hover {
+  background: #d5ebff;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #20202b;
+}
+
+/* Click */
 button:active {
-  background-color: #d0d0d0;
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #20202b;
+}
+
+/* Operators */
+button:nth-child(4),
+button:nth-child(8) {
+  background: #e7c0ef;
+}
+
+button:nth-child(4):hover,
+button:nth-child(8):hover {
+  background: #f0d8f5;
+}
+
+/* Equal */
+button:nth-child(12) {
+  background: #e7471b;
+  color: #ffffff;
+}
+
+button:nth-child(12):hover {
+  background: #ff6438;
+}
+
+/* Clear */
+button:nth-child(13) {
+  background: #c9e8c8;
+}
+
+button:nth-child(13):hover {
+  background: #dff3dd;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .calculator {
+    width: calc(100% - 35px);
+    padding: 20px;
+  }
+
+  button {
+    height: 50px;
+  }
 }
